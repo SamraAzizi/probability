@@ -10,3 +10,26 @@ def simulate_monty_hall(num_games=1000):
         random.shuffle(doors)
         
         first_choice = random.randint(0, 2)
+        # Host opens a remaining goat door
+        host_opens = random.choice([i for i in range(3) if i != first_choice and doors[i] == 'goat'])
+        
+        # Switching strategy
+        switch_choice = [i for i in range(3) if i != first_choice and i != host_opens][0]
+        
+        if doors[first_choice] == 'car':
+            stick_wins += 1
+        if doors[switch_choice] == 'car':
+            switch_wins += 1
+    
+    stick_percent = (stick_wins / num_games) * 100
+    switch_percent = (switch_wins / num_games) * 100
+    
+    return stick_percent, switch_percent
+
+def plot_results(stick, switch):
+    labels = ['Stick', 'Switch']
+    theoretical = [33.3, 66.6]
+    simulated = [stick, switch]
+    
+    plt.figure(figsize=(10, 6))
+    plt.bar(labels, theoretical, width=0.4, label='Theoretical', color='blue', alpha=0.6)
