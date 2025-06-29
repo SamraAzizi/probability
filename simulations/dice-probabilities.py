@@ -10,7 +10,7 @@ def simulate_dice_rolls(num_rolls=10000):
         dice2 = random.randint(1, 6)
         sum_val = dice1 + dice2
         sum_counts[sum_val] += 1
-
+    
     sums = sorted(sum_counts.keys())
     probabilities = [(sum_counts[s] / num_rolls) * 100 for s in sums]
     
@@ -29,3 +29,10 @@ def plot_dice_probabilities(sums, probabilities):
     plt.grid(True)
     plt.savefig('../data/dice_probabilities.png')
     plt.show()
+
+if __name__ == "__main__":
+    sums, probs = simulate_dice_rolls()
+    print("Dice Sum Probabilities:")
+    for s, p in zip(sums, probs):
+        print(f"Sum {s}: {p:.2f}%")
+    plot_dice_probabilities(sums, probs)
