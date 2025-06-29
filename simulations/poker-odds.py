@@ -21,3 +21,32 @@ def simulate_poker_hands(num_simulations=10000):
         'Royal Flush': 0
     }
     
+    deck = create_deck()
+    
+    for _ in range(num_simulations):
+        random.shuffle(deck)
+        hand = deck[:5]
+        
+        # Simplified hand detection (for demo)
+        ranks = [card.split()[0] for card in hand]
+        suits = [card.split()[2] for card in hand]
+        
+        if len(set(suits)) == 1:
+            if set(ranks) == {'10', 'J', 'Q', 'K', 'A'}:
+                hand_types['Royal Flush'] += 1
+            else:
+                hand_types['Flush'] += 1
+        elif len(set(ranks)) == 2:
+            if any(ranks.count(r) == 4 for r in set(ranks)):
+                hand_types['Four of a Kind'] += 1
+            else:
+                hand_types['Full House'] += 1
+        elif len(set(ranks)) == 3:
+            if any(ranks.count(r) == 3 for r in set(ranks)):
+                hand_types['Three of a Kind'] += 1
+            else:
+                hand_types['Two Pair'] += 1
+        elif len(set(ranks)) == 4:
+            hand_types['Pair'] += 1
+        else:
+            hand_types['High Card'] += 1
