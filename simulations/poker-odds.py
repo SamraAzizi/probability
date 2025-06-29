@@ -50,3 +50,25 @@ def simulate_poker_hands(num_simulations=10000):
             hand_types['Pair'] += 1
         else:
             hand_types['High Card'] += 1
+    
+    probabilities = {hand: (count / num_simulations) * 100 for hand, count in hand_types.items()}
+    return probabilities
+
+def plot_poker_odds(probabilities):
+    hands = list(probabilities.keys())
+    probs = list(probabilities.values())
+    
+    plt.figure(figsize=(12, 6))
+    plt.barh(hands, probs, color='purple', alpha=0.7)
+    plt.xlabel('Probability (%)')
+    plt.title('Poker Hand Probabilities (Simulated)')
+    plt.grid(True)
+    plt.savefig('../data/poker_odds.png')
+    plt.show()
+
+if __name__ == "__main__":
+    probs = simulate_poker_hands()
+    print("Poker Hand Probabilities:")
+    for hand, p in probs.items():
+        print(f"{hand}: {p:.2f}%")
+    plot_poker_odds(probs)
