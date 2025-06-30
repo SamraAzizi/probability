@@ -1,6 +1,14 @@
 import random
 import matplotlib.pyplot as plt
 from itertools import combinations
+import os
+from pathlib import Path
+
+# ===== NEW CODE =====
+current_dir = Path(__file__).parent
+data_dir = current_dir.parent / "data"
+data_dir.mkdir(exist_ok=True)
+# ====================
 
 def create_deck():
     suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades']
@@ -27,7 +35,6 @@ def simulate_poker_hands(num_simulations=10000):
         random.shuffle(deck)
         hand = deck[:5]
         
-        # Simplified hand detection (for demo)
         ranks = [card.split()[0] for card in hand]
         suits = [card.split()[2] for card in hand]
         
@@ -63,7 +70,7 @@ def plot_poker_odds(probabilities):
     plt.xlabel('Probability (%)')
     plt.title('Poker Hand Probabilities (Simulated)')
     plt.grid(True)
-    plt.savefig('../data/poker_odds.png')
+    plt.savefig(data_dir / "poker_odds.png")  # CHANGED THIS LINE
     plt.show()
 
 if __name__ == "__main__":

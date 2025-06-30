@@ -1,5 +1,12 @@
 import random
 import matplotlib.pyplot as plt
+import os
+from pathlib import Path
+
+# Get the absolute path to the data folder
+current_dir = Path(__file__).parent
+data_dir = current_dir.parent / "data"
+data_dir.mkdir(exist_ok=True)  # Creates folder if it doesn't exist
 
 def simulate_monty_hall(num_games=1000):
     stick_wins = 0
@@ -11,11 +18,11 @@ def simulate_monty_hall(num_games=1000):
         
         first_choice = random.randint(0, 2)
         
-        # Host opens a remaining goat door
-        host_opens = random.choice([i for i in range(3) if i != first_choice and doors[i] == 'goat'])
+        host_opens = random.choice([i for i in range(3) 
+                                  if i != first_choice and doors[i] == 'goat'])
         
-        # Switching strategy
-        switch_choice = [i for i in range(3) if i != first_choice and i != host_opens][0]
+        switch_choice = [i for i in range(3) 
+                        if i != first_choice and i != host_opens][0]
         
         if doors[first_choice] == 'car':
             stick_wins += 1
@@ -38,7 +45,11 @@ def plot_results(stick, switch):
     plt.ylabel('Win Percentage (%)')
     plt.title('Monty Hall Problem: Theory vs Simulation')
     plt.legend()
-    plt.savefig('../data/monty_hall_results.png')
+    
+    # Save to absolute path
+    save_path = data_dir / "monty_hall_results.png"
+    plt.savefig(save_path)
+    print(f"Graph saved to: {save_path}")
     plt.show()
 
 if __name__ == "__main__":

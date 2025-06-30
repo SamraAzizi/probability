@@ -2,6 +2,13 @@ import random
 import matplotlib.pyplot as plt
 from collections import defaultdict
 
+import os
+from pathlib import Path
+
+# Create absolute path to the data folder
+current_dir = Path(__file__).parent
+data_dir = current_dir.parent / "data"
+data_dir.mkdir(exist_ok=True)  # This creates the folder if it doesn't exist
 def simulate_dice_rolls(num_rolls=10000):
     sum_counts = defaultdict(int)
     
