@@ -1,14 +1,14 @@
 import random
 import matplotlib.pyplot as plt
 from collections import defaultdict
-
-import os
 from pathlib import Path
+import os
 
-# Create absolute path to the data folder
+# Set up paths - this will work on Windows, Mac, and Linux
 current_dir = Path(__file__).parent
 data_dir = current_dir.parent / "data"
-data_dir.mkdir(exist_ok=True)  # This creates the folder if it doesn't exist
+data_dir.mkdir(exist_ok=True)  # Creates folder if it doesn't exist
+
 def simulate_dice_rolls(num_rolls=10000):
     sum_counts = defaultdict(int)
     
@@ -24,7 +24,8 @@ def simulate_dice_rolls(num_rolls=10000):
     return sums, probabilities
 
 def plot_dice_probabilities(sums, probabilities):
-    theoretical = [2.78, 5.56, 8.33, 11.11, 13.89, 16.67, 13.89, 11.11, 8.33, 5.56, 2.78]  # Exact % for sums 2-12
+    theoretical = [2.78, 5.56, 8.33, 11.11, 13.89, 16.67, 
+                  13.89, 11.11, 8.33, 5.56, 2.78]  # Exact % for sums 2-12
     
     plt.figure(figsize=(12, 6))
     plt.bar(sums, probabilities, width=0.6, label='Simulated', color='green', alpha=0.7)
@@ -34,7 +35,11 @@ def plot_dice_probabilities(sums, probabilities):
     plt.title('Probability Distribution of Two Dice Sums')
     plt.legend()
     plt.grid(True)
-    plt.savefig('../data/dice_probabilities.png')
+    
+    # Save to absolute path
+    save_path = data_dir / "dice_probabilities.png"
+    plt.savefig(save_path)
+    print(f"Graph saved to: {save_path}")
     plt.show()
 
 if __name__ == "__main__":
