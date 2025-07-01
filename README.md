@@ -96,3 +96,18 @@ python simulations/dice_probabilities.py
 python simulations/poker_odds.py
 ```
 
+### Outputs:
+- Results printed in terminal
+- Graphs saved to `/data/` folder
+
+### File Structure
+```bash
+probability-in-games/
+├── data/                  # Generated graphs
+├── simulations/
+│   ├── monty_hall.py      # Door-switching simulation
+│   ├── dice_probabilities.py  # Dice sum analysis
+│   └── poker_odds.py      # Poker hand probabilities
+└── README.md
+
+```
