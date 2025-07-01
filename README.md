@@ -133,3 +133,32 @@ probability-in-games/
 - **4 & 10** (~8.3% each)  
 - **3 & 11** (~5.6% each)  
 - **2 & 12** (2.78% each) 
+
+**Key Insight**: Symmetric distribution around 7.  
+*(Graph saved to: `data/dice_probabilities.png`)*
+
+---
+
+### 3. Poker Hand Odds  
+**Top 5 most common hands**:  
+1. **High Card** (~50%)  
+2. **Pair** (~42%)  
+3. **Two Pair** (~5%)  
+4. **Three of a Kind** (~2%)  
+5. **Flush** (~0.2%)  
+
+**Rarest**:  
+- **Royal Flush** (~0.00015%)  
+
+*(Graph saved to: `data/poker_odds.png`)*
+
+---
+
+## 🎨 Customization  
+Modify simulation parameters in these files:  
+
+| File                      | Key Variable       | Example Change              |
+|---------------------------|--------------------|-----------------------------|
+| `monty_hall.py`          | `num_games = 10000` | Increase for more accuracy  |
+| `dice_probabilities.py`  | `num_rolls = 10000` | Higher = smoother results   |
+| `poker_odds.py`          | `num_simulations = 10000` | More trials = better stats |
