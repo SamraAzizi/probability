@@ -111,3 +111,25 @@ probability-in-games/
 └── README.md
 
 ```
+
+## 📊 Results & Interpretation
+
+### 1. Monty Hall Problem
+| Strategy  | Theoretical Win % | Simulated Win % |
+|-----------|------------------|-----------------|
+| **Stick** | 33.3%            | ~33.5%          |
+| **Switch**| 66.6%            | ~66.5%          |
+
+**Conclusion**: Switching doors doubles your chances of winning!  
+*(Graph saved to: `data/monty_hall_results.png`)*
+
+---
+
+### 2. Dice Sum Probabilities  
+**Most likely sums** when rolling two dice:  
+- **7** (16.67%) ← *Most probable*  
+- **6 & 8** (~13.9% each)  
+- **5 & 9** (~11.1% each)  
+- **4 & 10** (~8.3% each)  
+- **3 & 11** (~5.6% each)  
+- **2 & 12** (2.78% each) 
