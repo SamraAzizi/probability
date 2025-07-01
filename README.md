@@ -162,3 +162,12 @@ Modify simulation parameters in these files:
 | `monty_hall.py`          | `num_games = 10000` | Increase for more accuracy  |
 | `dice_probabilities.py`  | `num_rolls = 10000` | Higher = smoother results   |
 | `poker_odds.py`          | `num_simulations = 10000` | More trials = better stats |
+
+### Troubleshooting
+- **Problem**: FileNotFoundError" when saving graphs
+- **Solution**: 
+    - Manually create a `/data/` folder in the project directory
+    - Or run scripts as administrator
+
+- **Problem**: Graphs dont display
+- **Solution**: Ensure matplotlib is installed
