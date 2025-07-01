@@ -36,6 +36,7 @@ Each simulation:
   Sticking wins: 33.2%
   Switching wins: 66.8%
   ```
+https://data/monty_hall_results.png
 
   ### 2. Dice SUm Probability Analyzer
   - **Concept**: Calculates likehood of sums when rolling two 6 sided dice
@@ -47,3 +48,51 @@ Each simulation:
     Sum 7: 16.64%
     Sum 12: 2.77% 
     ```
+    https://data/dice_probabilities.png
+
+### 3. Poker Hand Odds Calculator
+- **Concept**: Simulates probability of poker hands in a 5-card draw
+- **Key Insight**:
+    - Pair: ~42% chance
+    - Flush: ~0.2% chance
+
+- **Code File**: `simulations/poker_odds.py`
+- **Output Example:**
+    ```text
+    High Card: 50.14%
+    Pair: 42.38%
+    Flush: 0.21%
+    ```
+
+    https://data/poker_odds.png
+
+
+
+### Installation
+Clone the repository:
+
+```bash
+https://github.com/SamraAzizi/probability.git
+cd probability
+```
+
+Install dependencies:
+
+```bash
+pip install matplotlib
+```
+
+### Usage
+Run any simulation:
+
+```bash
+# Monty Hall Problem
+python simulations/monty_hall.py
+
+# Dice Probabilities
+python simulations/dice_probabilities.py
+
+# Poker Hand Odds
+python simulations/poker_odds.py
+```
+
